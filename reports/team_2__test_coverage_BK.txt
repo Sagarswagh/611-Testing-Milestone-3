@@ -1,0 +1,16 @@
+PS C:\Users\balak\Desktop\FallSem\ENPM611\PROJECT\testing_team2\project-application-template> python -m coverage report --omit=*test_*
+Name                            Stmts   Miss  Cover
+---------------------------------------------------
+month_issue_analysis.py            48      1    98%
+tests_month_issue_analysis.py      56      0   100%
+---------------------------------------------------
+TOTAL                             104      1    99%
+
+
+PS C:\Users\balak\Desktop\FallSem\ENPM611\PROJECT\testing_team2\project-application-template> python -m coverage report                                                      
+Name                            Stmts   Miss  Cover
+---------------------------------------------------
+month_issue_analysis.py            48      1    98%
+tests_month_issue_analysis.py      56      0   100%
+---------------------------------------------------
+TOTAL                             104      1    99%

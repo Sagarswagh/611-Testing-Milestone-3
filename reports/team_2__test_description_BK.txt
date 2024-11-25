@@ -1,0 +1,15 @@
+Failed Test Case
+The test case test_invalid_data_handling failed because of an issue in the month_issue_analysis.py file:
+python
+if issue['created_at'].month:
+
+Error:
+AttributeError: 'str' object has no attribute 'month'
+This occurred because the created_at field in the test data contained an invalid string ('invalid_date'), which caused the code to attempt accessing .month on a string instead of a valid datetime object.
+Is This Alright?
+No, this is not acceptable because:
+The test case is valid and highlights a real issue with how invalid data is handled.
+The failure indicates that the code does not gracefully handle malformed or invalid date inputs, which could lead to runtime errors in production.
+How to Fix This
+1. Update the Code to Handle Invalid Dates
+Modify the month_issue_analysis.py file to safely parse dates and handle invalid inputs. Use try-except to catch errors during date parsing.

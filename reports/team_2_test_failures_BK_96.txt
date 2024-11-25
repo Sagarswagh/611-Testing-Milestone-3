@@ -1,0 +1,43 @@
+PS C:\Users\balak\Desktop\FallSem\ENPM611\PROJECT\testing_team2\project-application-template> python -m coverage run --omit=*/config.py,*/data_loader.py,*/model.py tests_month_issue_analysis.py
+>> python -m coverage report
+.
+
+Found 0 events across 2 issues.
+
+
+E
+
+Found 0 events across 2 issues.
+
+
+..
+
+Found 0 events across 2 issues.
+
+
+.
+======================================================================
+ERROR: test_invalid_data_handling (__main__.TestMonthIssueAnalysis.test_invalid_data_handling)
+Test behavior with invalid or corrupted data.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\anaconda3\Lib\unittest\mock.py", line 1390, in patched
+    return func(*newargs, **newkeywargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\balak\Desktop\FallSem\ENPM611\PROJECT\testing_team2\project-application-template\tests_month_issue_analysis.py", line 86, in test_invalid_data_handling     
+    analysis.run()
+  File "C:\Users\balak\Desktop\FallSem\ENPM611\PROJECT\testing_team2\project-application-template\month_issue_analysis.py", line 55, in run
+    if issue['created_at'].month:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'month'
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.488s
+
+FAILED (errors=1)
+Name                            Stmts   Miss  Cover
+---------------------------------------------------
+month_issue_analysis.py            48      2    96%
+tests_month_issue_analysis.py      46      0   100%
+---------------------------------------------------
+TOTAL                              94      2    98%
