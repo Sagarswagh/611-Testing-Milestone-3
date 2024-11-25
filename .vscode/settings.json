@@ -31,4 +31,6 @@
     },
     "workbench.editor.wrapTabs": true,
     "debug.toolBarLocation": "docked",
+    //"coverage-gutters.showLineCoverage": true
+    "coverage-gutters.coverageFileNames": ["lcov.info", "coverage.xml"]
 }
