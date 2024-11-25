@@ -97,7 +97,7 @@ class TestOverallAnalysis(unittest.TestCase):
         mock_issues_empty_labels['labels'] = [[] for _ in range(len(self.mock_issues))]
         mock_load.return_value = mock_issues_empty_labels
 
-        with patch('matplotlib.pyplot.show'):  # Prevent plots from displaying
+        with patch('matplotlib.pyplot.show'):  
             self.analysis.run()
 
         for labels in mock_load.return_value['labels']:
@@ -109,7 +109,7 @@ class TestOverallAnalysis(unittest.TestCase):
         incomplete_issues = self.mock_issues.drop(columns=['closed_at'])
         mock_load.return_value = incomplete_issues
 
-        with patch('matplotlib.pyplot.show'):  # Prevent plots from displaying
+        with patch('matplotlib.pyplot.show'): 
             with self.assertRaises(KeyError):
                 self.analysis.run()
 
