@@ -9,7 +9,6 @@ from model import Issue
 class TestOverallAnalysis(unittest.TestCase):
 
     def setUp(self):
-        """Set up mock data and objects before each test."""
         self.analysis = OverallAnalysis()
         self.mock_issues = pd.DataFrame({
             'id': [1, 2, 3],
@@ -25,10 +24,9 @@ class TestOverallAnalysis(unittest.TestCase):
         """Test the `run` method with valid data."""
         mock_load.return_value = self.mock_issues
 
-        with patch('matplotlib.pyplot.show'):  # Prevent plots from displaying
+        with patch('matplotlib.pyplot.show'):  
             self.analysis.run()
 
-        # Check if correct print statements or log entries occur
         self.assertTrue(mock_load.called)
 
     @patch('data_loader.DataLoader.load_and_process_issues')
@@ -36,7 +34,7 @@ class TestOverallAnalysis(unittest.TestCase):
         """Test the `run` method with an empty dataset."""
         mock_load.return_value = pd.DataFrame()
 
-        with patch('matplotlib.pyplot.show'):  # Prevent plots from displaying
+        with patch('matplotlib.pyplot.show'): 
             self.analysis.run()
 
         self.assertTrue(mock_load.return_value.empty)
@@ -48,7 +46,7 @@ class TestOverallAnalysis(unittest.TestCase):
         mock_issues_with_nulls.loc[0, 'labels'] = None
         mock_load.return_value = mock_issues_with_nulls
 
-        with patch('matplotlib.pyplot.show'):  # Prevent plots from displaying
+        with patch('matplotlib.pyplot.show'):  
             self.analysis.run()
 
         self.assertIn(None, mock_load.return_value['labels'].tolist())
@@ -58,7 +56,7 @@ class TestOverallAnalysis(unittest.TestCase):
         """Test pie chart creation for issue state distribution."""
         mock_load.return_value = self.mock_issues
 
-        with patch('matplotlib.pyplot.show'):  # Prevent plots from displaying
+        with patch('matplotlib.pyplot.show'):  
             self.analysis.run()
 
         state_counts = self.mock_issues['state'].value_counts()
@@ -70,7 +68,7 @@ class TestOverallAnalysis(unittest.TestCase):
         """Test bar chart for top labels."""
         mock_load.return_value = self.mock_issues
 
-        with patch('matplotlib.pyplot.show'):  # Prevent plots from displaying
+        with patch('matplotlib.pyplot.show'):  
             self.analysis.run()
 
         labels = pd.Series([label for labels in self.mock_issues['labels'] for label in labels])
@@ -83,7 +81,7 @@ class TestOverallAnalysis(unittest.TestCase):
         """Test histogram for time-to-resolution calculation."""
         mock_load.return_value = self.mock_issues
 
-        with patch('matplotlib.pyplot.show'):  # Prevent plots from displaying
+        with patch('matplotlib.pyplot.show'):  
             self.analysis.run()
 
         times_to_resolve = [
