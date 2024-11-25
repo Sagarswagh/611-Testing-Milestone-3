@@ -86,10 +86,3 @@ python run.py --feature 3
   </li>
   <li><strong>Edge Cases:</strong> Scenarios with empty or null data were handled correctly, with appropriate error messages being logged.</li>
 </ul>
-
-<h4>Example Results</h4>
-<ul>
-  <li><strong>Average Close Times:</strong> Successfully calculated for labels such as <code>status/needs-reproduction</code> (457 days), <code>area/cli</code> (1467 days), and <code>good first issue</code> (550 days).</li>
-  <li><strong>Error Handling:</strong> Verified that errors are logged for scenarios with missing <code>closed_at</code> dates or invalid data formats.</li>
-  <li><strong>Visualization:</strong> All visualizations were displayed correctly, including pie charts, histograms, and bar graphs for issues distribution.</li>
-</ul>
