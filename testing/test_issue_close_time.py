@@ -5,20 +5,7 @@ from issue_close_time_analysis import IssueCloseTimeAnalysis
 import subprocess
 
 
-def get_specific_coverage_report(file_name):
-    # Run the coverage report, omitting test files
-    result = subprocess.run(
-        ['coverage', 'report', '--omit', 'testing/*'],  # Adjusted to match file path
-        stdout=subprocess.PIPE, 
-        stderr=subprocess.PIPE, 
-        text=True
-    )
-    
-    # Filter the result for the specific file
-    lines = result.stdout.splitlines()
-    for line in lines:
-        if file_name in line:
-            print(line)
+
 
 
 class TestIssueCloseTimeAnalysis(unittest.TestCase):
