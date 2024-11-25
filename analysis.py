@@ -99,7 +99,7 @@ class Analysis:
 
 
 
-def parse_args():
+def parse_args(): # pragma: no cover
     """Parse command line arguments."""
     import argparse
     parser = argparse.ArgumentParser(description="GitHub Issues Analysis")
@@ -107,7 +107,7 @@ def parse_args():
     parser.add_argument('--creator', type=str, help="Filter by issue creator")
     return parser.parse_args()
 
-def main():
+def main(): # pragma: no cover
     # Initialize the DataLoader and load & process issues
     data_loader = DataLoader()  # DataLoader will automatically handle the configuration and file loading
     df = data_loader.load_and_process_issues()  # Load and process the issues using DataLoader
