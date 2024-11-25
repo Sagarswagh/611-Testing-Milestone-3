@@ -50,7 +50,7 @@ class TestAnalysis(unittest.TestCase):
             mock_print.assert_any_call("No closed issues found. Average time to close cannot be calculated.")
 
     def test_explode_labels(self):
-        analysis=Analysis()
+        analysis= Analysis()
         with patch("builtins.print") as mock_print:
             filtered_df=self.mock_df.explode("labels")
             analysis.analyze_and_visualize(filtered_df, self.mock_df)
