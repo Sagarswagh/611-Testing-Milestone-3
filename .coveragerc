@@ -1,9 +1,2 @@
-[run]
-omit = testing/*
 
-[report]
-include =
-    tests_month_issue_analysis.py
-    issue_close_time_analysis.py
-    testing/__init__.py
 

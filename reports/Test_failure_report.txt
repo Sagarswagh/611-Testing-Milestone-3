@@ -1,0 +1,7 @@
+﻿sagarwagh@sagars-air 611-Testing-Milestone-3 % python3 -m coverage report
+Name                           Stmts   Miss  Cover
+--------------------------------------------------
+issue_close_time_analysis.py      39      3    92%
+testing/__init__.py                0      0   100%
+--------------------------------------------------
+TOTAL                             39      3    92%
