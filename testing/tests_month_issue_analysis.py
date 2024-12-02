@@ -89,26 +89,22 @@ class TestMonthIssueAnalysis(unittest.TestCase):
             mock_print.assert_called_with('\n\nFound 0 events across 1 issues for test_user.\n\n')
 
     @patch('month_issue_analysis.DataLoader')
-    def test_user_specific_events(self, MockDataLoader):
-        """Test behavior when a specific user is provided."""
-        # Mock DataLoader to return a sample DataFrame
+    def test_invalid_data_handling(self, MockDataLoader):
+        """Test behavior with invalid or corrupted data."""
+        # Mock DataLoader to return a DataFrame with invalid dates
         data = {
-            'created_at': [pd.Timestamp('2023-01-15')],
-            'closed_at': [pd.Timestamp('2023-01-25')],
-            'state': ['closed']
+            'created_at': ['invalid_date', pd.Timestamp('2023-02-20')],
+            'closed_at': [pd.Timestamp('2023-01-25'), None],
+            'state': ['closed', 'open']
         }
         mock_df = pd.DataFrame(data)
         MockDataLoader.return_value.load_and_process_issues.return_value = mock_df
 
         analysis = MonthIssueAnalysis()
         
-        # Set a specific user for testing
-        analysis.USER = 'test_user'
-
-        with patch('builtins.print') as mock_print:
+        with self.assertRaises(ValueError):  # Expecting a ValueError due to invalid date parsing
             analysis.run()
-            # Verify that the output includes the specific user
-            mock_print.assert_called_with('\n\nFound 0 events across 1 issues for test_user.\n\n')
+   
 
 
 if __name__ == '__main__':
